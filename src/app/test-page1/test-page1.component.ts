@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import{RouterModule} from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-test-page1',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,RouterModule,RouterOutlet],
   templateUrl: './test-page1.component.html',
-  styleUrl: './test-page1.component.css'
+  styleUrls: ['./test-page1.component.css']
 })
 export class TestPage1Component {
   numberValue=1;
@@ -16,11 +19,11 @@ export class TestPage1Component {
     const input = $event.target as HTMLInputElement;
     this.numberValue = +input.value;
   
-    const textValue: string = input.value; // Extraire la valeur saisie
+    const textValue: string = input.value; 
     console.log('input text value:', textValue);
 
-    const numberValue: number = +textValue; // Convertir la chaîne en nombre
-    this.numberValue = numberValue; // Mettre à jour la propriété
+    const numberValue: number = +textValue; 
+    this.numberValue = numberValue; 
     console.log('input number value:', this.numberValue);}
     
    

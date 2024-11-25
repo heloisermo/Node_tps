@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserSettingsService } from '../user-settings.service'; // Importer le service
+import { UserSettingsService } from '../user-settings.service'; 
+import {Routes} from '@angular/router';
 
 @Component({
   selector: 'app-lesson-list-page',
@@ -9,14 +10,14 @@ import { UserSettingsService } from '../user-settings.service'; // Importer le s
   templateUrl: './lesson-list-page.component.html',
   styleUrls: ['./lesson-list-page.component.css']
 })
+
 export class LessonListPageComponent {
-  lastLessonId: number | null = null; // Champ pour afficher l'ID récupéré
+  lastLessonId: number | null = null; 
 
   constructor(
     private router: Router,
-    public userSettingsService: UserSettingsService // Injection du service
+    public userSettingsService: UserSettingsService 
   ) {
-    // Récupérer la valeur de lastLessonId depuis le service
     this.lastLessonId = this.userSettingsService.lastLessonId;
     console.log('Retrieved lastLessonId:', this.lastLessonId);
   }
@@ -27,4 +28,7 @@ export class LessonListPageComponent {
     });
   }
 }
+const routes: Routes = [
+  { path: 'lesson-list-page', component: LessonListPageComponent }, 
+];
 
